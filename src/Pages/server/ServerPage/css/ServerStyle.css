@@ -1,0 +1,51 @@
+*{
+    padding:0;
+    margin: 0;
+}
+.app-container{
+   width: 100%;
+   height: 100%;
+}
+.app-header{
+    background-color: seagreen;
+    padding:10px;
+    width: 100%;
+}
+.app-header p{
+    margin: 10px;
+    font-size: 30px;
+    color: white;
+}
+.app-form{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app-form #room-input{
+    width: 200px;
+    height: 30px;
+    border:seagreen solid 2px ;
+    font-weight: 700;
+    font-size: larger;
+    text-align: center;
+}
+.app-form #Go{
+    width: 50px;
+    height: 22px;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius:10px ;
+    border:seagreen solid 1px ;
+   background-color: seagreen;
+   color:white;
+   
+
+}
+#screenShared{
+    width: 100%;
+height: 100%;
+margin-top: 20px;
+max-width: 100%;
+max-height: 100%;
+
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../src/client/ClientOnActive/css/ClientOnActiveStyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="c-act-container">
+        <div class="c-act-header">
+            <div class="controls">
+                   <p>|</p>
+                <div class="content">
+                 
+                    <img src="../../src/img/icons8-select-cursor-24.png" id="act-mouse" >
+                    <img src="../../src/img/keyboard.png" id="act-keyboard" ></div>
+                    <p>|</p>
+            </div>
+            <div id="show-hide">
+                <img src="../../src/img/upload.png"  id="show-hide-img" >
+            </div>
+        </div>
+        <div class="c-act-body">
+            <div class="vde"><video id="remote-video" autoplay hidden></video></div>
+            
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+ 
+ 
+ <!-- check https://peerjs.com/ for latest CDN-->
+ <script src="../../src/lib/JQ.js" ></script>
+ <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script src="../../src/client/ClientOnActive/js/WRTC.Client.js"></script>
+ <script src="../../src/client/ClientOnActive/js/Script.ClientOnActivePage.js"></script>
+</body>
+</html>

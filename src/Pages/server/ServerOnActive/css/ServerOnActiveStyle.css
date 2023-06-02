@@ -1,0 +1,48 @@
+*{
+    padding:0;
+    margin: 0;
+}
+.act-container{
+   width: 100%;
+   height: 100%;
+}
+.act-header{
+    background-color: seagreen;
+    padding:10px;
+    width: 100%;
+}
+.act-header p{
+    margin: 10px;
+    font-size: 30px;
+    color: white;
+}
+.act-body{
+    width: 80%;
+    height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content:end;
+        margin: 0 auto ;
+}
+#act-close{
+    background-color: rgb(228, 45, 45);
+    color: white;
+ font-weight: bolder;
+ height: 50px;
+font-size: 33px;
+border: 0px;
+transition:  1s;
+}
+#act-close:hover{
+    background-color: rgb(248, 72, 72);
+}
+.act-body img{
+    width: 90%;
+    height:91%;
+    border-radius: 33px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+
+
