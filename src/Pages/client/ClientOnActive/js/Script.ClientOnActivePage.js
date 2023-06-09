@@ -3,12 +3,27 @@ let room
 let hide_show =false;
 var StringOfUrl = window.location.search;
 room = StringOfUrl.slice(1).split("room=")[1];
+function togglePopup(message) {
+   
+    $(".message").html(message);
+    $(".message").toggle();
+}
 if(room){
+    togglePopup("<p>Wait to get the PC</p>")
      createRoom(room);
     socket.emit("join-message",room);
      socket.emit("start-conn",room);
-
+     togglePopup("done")
 }
+socket.on("screen-size",(data)=>{
+    var ServScreen = data.mainScreen
+    console.log(ServScreen);
+    let box = document.querySelector('#remote-video');
+        let width = box.offsetWidth;
+        let height = box.offsetHeight;
+        console.log({ width, height });
+})
+
 document.getElementById('show-hide').addEventListener('click',()=>{
 if (!hide_show) {
 hide_show=true;
@@ -37,12 +52,18 @@ $("remote-video").click(function(e){
 });
 document.getElementById("remote-video").addEventListener("touchstart",
 function clicked(e) {
-    var br = document.getElementById("remote-video").getBoundingClientRect();
-    // x & y are relative to the clicked element
-    var x = e.touches[0].clientX - br.left;
-    var y = e.touches[0].clientY - br.top;
+    var br = document.getElementById("remote-video");
     
-    var obj = {"x":x,"y":y,"room":room}
+  
+   var w =br.clientWidth
+   var h =br.clientHeight
+
+    // x & y are relative to the clicked element
+    var x = e.touches[0].clientX - br.getBoundingClientRect().left;
+    var y = e.touches[0].clientY - br.getBoundingClientRect().top;
+    
+    var obj = {"x":x,"y":y,"room":room,"w":w ,"h":h}
  
     socket.emit("touch",JSON.stringify(obj));
 });
+

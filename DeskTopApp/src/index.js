@@ -1,9 +1,10 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow ,screen} = require('electron');
 const path = require('path');
 const { io } = require('socket.io-client');
 var robot = require("robotjs");
 var socket = io("http://192.168.1.105:9000")
 let IP_elec = Math.random().toString().slice(2,11);
+
 socket.emit("join-message",IP_elec );
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -42,7 +43,10 @@ socket.on("start-conn",(data)=>{
   mainWindow.webContents.openDevTools();
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()
-  })
+  });
+  //
+//onsole.log(mainScreen)
+  //socket.emit("screen-size",{"room":IP_elec,"mainScreen":mainScreen})
 })
 socket.on("mouse-move",(data)=>{
   var obj = JSON.parse(data);
@@ -50,13 +54,19 @@ socket.on("mouse-move",(data)=>{
   var y = obj.y;
 
   robot.moveMouse(x, y);
-})
+});
+
 socket.on("touch", async function(data){
+  const myScreen = screen.getPrimaryDisplay().bounds
   var obj = JSON.parse(data);
   var x = obj.x;
   var y = obj.y;
-
-  await robot.moveMouse(x, y);
+  var w = obj.w;
+  var h = obj.h;
+  
+var n = y*myScreen.height/h;
+var m =x*myScreen.width/w;
+  await robot.moveMouse(m, n);
   robot.mouseClick();
 })
 // This method will be called when Electron has finished

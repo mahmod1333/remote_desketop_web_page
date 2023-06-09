@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: rgb(61, 55, 55);
+    background-color: rgb(57, 136, 91);
 }
 
 .c-act-container {
@@ -94,6 +94,58 @@ display: flex;
 align-items: center;
 justify-content: center;
 }
+/*--------------------------------- message style --------------------------------------- */
+.message {
+
+    padding: 0 40px 16px;
+    box-shadow: 0 0 0 1px rgba(14,19,24,.07),0 2px 18px rgba(14,19,24,.25);
+    border-radius: 8px;
+    background-color: #fff;
+    margin-top: 32px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 300px;
+			height: 200px;
+			text-align: center;
+			box-sizing: border-box;
+			padding: 10px;
+			z-index: 100;
+			display: none;
+			/*to hide popup initially*/
+		}
+		
+		.close-btn-message {
+			position: absolute;
+			right: 20px;
+			top: 15px;
+			padding: 4px;
+            font-family: pixabayicons!important;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    font-display: block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+		}
+        .close-btn-message:hover{
+            background-color: #d1d0d0;
+            border-radius:15px ;
+        }
+        .load_img{
+width: 200;
+height: 100px;
+        }
+
+        /*--------------------------------- message style --------------------------------------- */
+        
  #remote-video{
-  
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+width: 75%;
+height: 75%;
 }

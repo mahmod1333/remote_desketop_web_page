@@ -46,6 +46,7 @@ io.on('connection', (socket) => {
     console.log(data)
     socket.broadcast.to(room).emit("touch", data);
   })
+ 
 
   socket.on("type", function (data) {
     var room = JSON.parse(data).room;
@@ -57,7 +58,7 @@ io.on('connection', (socket) => {
 });
 app.use(cors())
 // Routes and middleware
-app.options('*', cors())
+
 app.use("/src",express.static(path.join(__dirname,"src")))
 
 app.use("/client", ClientRouter);
