@@ -2,12 +2,15 @@ var socket = io("http://192.168.1.105:9000");
 let room
 let hide_show =false;
 var StringOfUrl = window.location.search;
+let doubletouch = false
+let check = false
 room = StringOfUrl.slice(1).split("room=")[1];
 function togglePopup(message) {
    
     $(".message").html(message);
     $(".message").toggle();
 }
+
 if(room){
     togglePopup("<p>Wait to get the PC</p>")
      createRoom(room);
@@ -54,15 +57,33 @@ document.getElementById("remote-video").addEventListener("touchstart",
 function clicked(e) {
     var br = document.getElementById("remote-video");
     
-  
    var w =br.clientWidth
    var h =br.clientHeight
 
     // x & y are relative to the clicked element
     var x = e.touches[0].clientX - br.getBoundingClientRect().left;
     var y = e.touches[0].clientY - br.getBoundingClientRect().top;
+  
+    //action on double tap goes below
+   
+    if(!check){
+        if(!doubletouch){
+            check = true;
+            setTimeout(() => {
+                check = false;
+                doubletouch=false
+                console.log("hi")
+            }, 500);
+            
+                }
+    }else{
+        doubletouch=true
+    }
+  //action on double tap goes below
     
-    var obj = {"x":x,"y":y,"room":room,"w":w ,"h":h}
+    
+
+    var obj = {"x":x,"y":y,"room":room,"w":w ,"h":h , "doubletouch":doubletouch}
  
     socket.emit("touch",JSON.stringify(obj));
 });

@@ -31,7 +31,7 @@ function createRoom(room) {
         call.on('stream', (stream) => {
             console.log("got call");
             console.log(stream);
-           $("c-act-body").css("zoom","70%")
+          // $("c-act-body").css("zoom","70%")
             setRemoteStream(stream)
         })
         currentPeer = call;
@@ -56,6 +56,7 @@ function setRemoteStream(stream) {
     let video = document.getElementById("remote-video");
     video.hidden = false;
     video.srcObject = stream;
+    video.focus()
 }
 
 
