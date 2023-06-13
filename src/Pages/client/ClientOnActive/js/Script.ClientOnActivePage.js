@@ -2,8 +2,10 @@ var socket = io("http://192.168.1.105:9000");
 let room
 let hide_show =false;
 var StringOfUrl = window.location.search;
-let doubletouch = false
+// click variabls   ////////
+let doubletouch = false 
 let check = false
+// click variabls///////////////
 room = StringOfUrl.slice(1).split("room=")[1];
 function togglePopup(message) {
    
