@@ -9,6 +9,7 @@ let y
 let w
 let h
 let doubletouch
+let clickLR
 socket.emit("join-message",IP_elec );
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -74,10 +75,14 @@ socket.on("touch", async function(data){
   w = obj.w;
   h = obj.h;
    doubletouch= obj.doubletouch
+   clickLR = obj.clickLR
   fixScreenMove(x,y,h,w)
-console.log(doubletouch)
- 
- doubletouch ?robot.mouseClick("left",doubletouch) : robot.mouseClick();
+console.log(doubletouch);
+console.log(clickLR)
+await robot.mouseClick(clickLR,doubletouch) 
+
+
+
 })
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
