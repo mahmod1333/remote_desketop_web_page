@@ -46,6 +46,11 @@ io.on('connection', (socket) => {
 
     socket.broadcast.to(room).emit("touch", data);
   })
+  socket.on("touch-move", function (data) {
+    var room = JSON.parse(data).room;
+
+    socket.broadcast.to(room).emit("touch-move", data);
+  });
  
 
   socket.on("type", function (data) {
