@@ -1,15 +1,15 @@
 const { app, BrowserWindow ,screen} = require('electron');
+const  {keysKeyboard} = require( "./JSON/Controles.Keyboard")
 const path = require('path');
 const { io } = require('socket.io-client');
 var robot = require("robotjs");
-var socket = io("http://192.168.1.105:9000")
+var socket = io("http://192.168.1.6:9000")
 let IP_elec = Math.random().toString().slice(2,11);
 let x
 let y
 let w
 let h
-let doubletouch
-let clickLR
+
 let mouseToggleC = false
 socket.emit("join-message",IP_elec );
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -69,30 +69,27 @@ socket.on("mouse-move",(data)=>{
 });
 ////////// touch event /////////////////////////////////////////////////////
 socket.on("touch", async function(data){
-  
   var obj = JSON.parse(data);
   x = obj.x;
   y = obj.y;
   w = obj.w;
   h = obj.h;
-   doubletouch= obj.doubletouch
-   clickLR = obj.clickLR
+  let doubletouch=obj.doubletouch
+  let clickLR= obj.clickLR
   fixScreenMove(x,y,h,w)
 console.log(doubletouch);
-console.log(clickLR)
-await robot.mouseClick(clickLR,doubletouch) 
+robot.mouseClick(clickLR,doubletouch)
 });
 
 ////////// touch event /////////////////////////////////////////////////////
 socket.on("touch-move", async function(data){
- robot.mouseToggle("down");
   var obj = JSON.parse(data);
 x = obj.x;
  y = obj.y;
  w = obj.w;
 h = obj.h;
  fixScreenMove(x,y,h,w)
-
+ robot.mouseToggle("down");
 })
 
 

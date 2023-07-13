@@ -8,18 +8,26 @@ body {
 }
 
 .c-act-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
 }
 
 .c-act-header {
     width: 100%;
+    display: table-row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
 }
 
 .controls {
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14);
     border-radius: 0 0 12px 12px;
-    min-width: 600px;
     max-width: 600px;
     padding: 10px 50px;
     flex-shrink: 0;
@@ -32,13 +40,15 @@ body {
     align-items: center;
     justify-content: center;
     transition: 0.5s;
-   
+
 }
-.controls p{
+
+.controls p {
     opacity: 0.5;
     font-size: 30px;
     margin: 10px;
 }
+
 .content {
     display: flex;
     align-items: center;
@@ -61,7 +71,6 @@ body {
 }
 
 #show-hide {
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,39 +98,40 @@ body {
     opacity: 1;
 }
 
-.c-act-body{
-display: flex;
-align-items: center;
-justify-content: center;
+.c-act-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 /*--------------------------------- message style --------------------------------------- */
 .message {
 
     padding: 0 40px 16px;
-    box-shadow: 0 0 0 1px rgba(14,19,24,.07),0 2px 18px rgba(14,19,24,.25);
+    box-shadow: 0 0 0 1px rgba(14, 19, 24, .07), 0 2px 18px rgba(14, 19, 24, .25);
     border-radius: 8px;
     background-color: #fff;
     margin-top: 32px;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 300px;
-			height: 200px;
-			text-align: center;
-			box-sizing: border-box;
-			padding: 10px;
-			z-index: 100;
-			display: none;
-			/*to hide popup initially*/
-		}
-		
-		.close-btn-message {
-			position: absolute;
-			right: 20px;
-			top: 15px;
-			padding: 4px;
-            font-family: pixabayicons!important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    z-index: 100;
+    display: none;
+    /*to hide popup initially*/
+}
+
+.close-btn-message {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    padding: 4px;
+    font-family: pixabayicons !important;
     font-style: normal;
     font-weight: 400;
     font-variant: normal;
@@ -130,22 +140,24 @@ justify-content: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     cursor: pointer;
-		}
-        .close-btn-message:hover{
-            background-color: #d1d0d0;
-            border-radius:15px ;
-        }
-        .load_img{
-width: 200;
-height: 100px;
-        }
+}
 
-        /*--------------------------------- message style --------------------------------------- */
-        
- #remote-video{
+.close-btn-message:hover {
+    background-color: #d1d0d0;
+    border-radius: 15px;
+}
+
+.load_img {
+    width: 200;
+    height: 100px;
+}
+
+/*--------------------------------- message style --------------------------------------- */
+
+#remote-video {
     display: block;
     margin-left: auto;
     margin-right: auto;
-width: 75%;
-height: 75%;
+    width: 75%;
+    height: 99%;
 }

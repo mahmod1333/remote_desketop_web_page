@@ -1,4 +1,4 @@
-var socket = io("http://192.168.1.105:9000");
+var socket = io("http://192.168.1.6:9000");
 let room
 let hide_show = false;
 var StringOfUrl = window.location.search;
@@ -13,6 +13,7 @@ let checkD = false;
 // click variabls LR ///////////////
 let clickLR = "left"
 let checkClickLR = false;
+let  timer;
 ///////////////////////////////////
 room = StringOfUrl.slice(1).split("room=")[1];
 function togglePopup(message) {
@@ -40,15 +41,15 @@ socket.on("screen-size", (data) => {
 
 
 
-document.getElementById('show-hide').addEventListener('click', () => {
+document.getElementById('show-hide').addEventListener("click", () => {
     if (!hide_show) {
         hide_show = true;
-        $(".controls").css("margin-top", -60)
-        $("#show-hide-img").attr("src", "../../src/img/down.png")
+        document.querySelector(".c-act-header").style.margin= "-60px 0px"
+        document.querySelector("#show-hide-img").src="../../src/img/down.png"
     } else {
         hide_show = false;
-        $(".controls").css("margin-top", 0);
-        $("#show-hide-img").attr("src", "../../src/img/upload.png")
+        document.querySelector(".c-act-header").style.margin= "0px 0px"
+        document.querySelector("#show-hide-img").src= "../../src/img/upload.png"
     }
 })
 
@@ -87,7 +88,7 @@ const handelTouchStart = (e) => {
     y = e.touches[0].clientY - videoRemote.getBoundingClientRect().top;
 
     // action of  left click //////////////////////////////////////////////////////////////////////////////////
-    var timer = setInterval(() => {
+    timer = setInterval(() => {
         clickLR = "right";
         checkClickLR = true;
     }, 5000);
@@ -111,7 +112,7 @@ const handelTouchStart = (e) => {
     //action on double tap goes below/////////////////////////////////////////////////////////////////////////////
 
 
-    var obj = { "x": x, "y": y, "room": room, "w": w, "h": h, "doubletouch": doubletouch, "clickLR": clickLR = "left" }
+    var obj = { "x": x, "y": y, "room": room, "w": w, "h": h, "doubletouch": doubletouch, "clickLR": clickLR }
 
     socket.emit("touch", JSON.stringify(obj));
 
@@ -139,8 +140,12 @@ const handelTouchEnd = (e) => {
         socket.emit("touch", JSON.stringify(obj));
         clearInterval(timer)
 
+    }else{
+        clearInterval(timer);
+        clickLR = "left";
+        checkClickLR = false;
     }
-    clickLR = "left";
+  
 }
 
 
