@@ -1,5 +1,6 @@
 
- const keysKeyboard = { "fristRow": {
+ const keysKeyboardControler = { 
+    "fristRow": {
       "0": "VK_BACK_QUOTE",
         "1": "VK_1",
         "2": "VK_2",

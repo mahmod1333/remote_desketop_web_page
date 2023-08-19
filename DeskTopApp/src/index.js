@@ -1,9 +1,9 @@
 const { app, BrowserWindow ,screen} = require('electron');
-const  {keysKeyboard} = require( "./JSON/Controles.Keyboard")
+const {Typehandler} = require('./keyboard')
 const path = require('path');
 const { io } = require('socket.io-client');
 var robot = require("robotjs");
-var socket = io("http://192.168.1.6:9000")
+var socket = io("http://192.168.1.10:9000")
 let IP_elec = Math.random().toString().slice(2,11);
 let x
 let y
@@ -91,7 +91,9 @@ h = obj.h;
  fixScreenMove(x,y,h,w)
  robot.mouseToggle("down");
 })
-
+socket.on("type",(data)=>{
+  Typehandler(data)
+})
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

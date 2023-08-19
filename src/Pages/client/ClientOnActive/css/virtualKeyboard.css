@@ -52,11 +52,11 @@ body {
     background-color: #dddddd;
 }
 
-.backspace_key {
+.Backspace_key {
     width: 120px;
 }
 
-.tab_key {
+.Tab_key {
     width: 90px;
 }
 
@@ -64,19 +64,19 @@ body {
     width: 90px;
 }
 
-.caps_lock_key {
+.Lock_key {
     width: 128px;
 }
 
-.enter_key {
+.Enter_key {
     width: 120px;
 }
 
-.shift_key {
+.Shift_key {
     width: 124px;
 }
 
-.space_key {
+._key {
     max-width: 600px;
     width: 100%;
 }

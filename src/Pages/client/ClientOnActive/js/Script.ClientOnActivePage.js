@@ -1,4 +1,4 @@
-var socket = io("http://192.168.1.6:9000");
+var socket = io("http://192.168.1.10:9000");
 let room
 let hide_show = false;
 var StringOfUrl = window.location.search;
@@ -147,11 +147,6 @@ const handelTouchEnd = (e) => {
     }
   
 }
-
-
-
-
-
 videoRemote.addEventListener("touchstart", (e) => handelTouchStart(e));
 videoRemote.addEventListener("touchmove", (e) =>handelTouchMove(e))
 videoRemote.addEventListener("touchend",(e) =>handelTouchEnd(e))

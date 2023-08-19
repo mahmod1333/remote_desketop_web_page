@@ -55,7 +55,14 @@ io.on('connection', (socket) => {
 
   socket.on("type", function (data) {
     var room = JSON.parse(data).room;
+ 
     socket.broadcast.to(room).emit("type", data);
+  })
+  
+  socket.on("lang-type", function (data) {
+    var room = JSON.parse(data).room;
+   
+    socket.broadcast.to(room).emit("lang-type", data);
   })
   socket.on('disconnect', () => {
     console.log('user disconnected');

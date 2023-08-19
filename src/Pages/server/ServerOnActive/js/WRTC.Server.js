@@ -194,7 +194,7 @@ async function startScreenShare() {
     };
     const stream = await navigator.mediaDevices
         .getUserMedia(constraints);
-   // setScreenSharingStream(stream);
+    //setScreenSharingStream(stream);
 
     screenStream = stream;
     let videoTrack = screenStream.getVideoTracks()[0];
