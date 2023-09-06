@@ -29,6 +29,7 @@ body {
     overflow: hidden;
     bottom: 0px;
     order: 2;
+    transform: 0.2s;
 }
 
 .row {
@@ -46,6 +47,7 @@ body {
     transition: .2s;
     z-index: 5;
     cursor: pointer;
+    transform: 0.2s;
 
 }
 .keys:hover{
@@ -74,6 +76,7 @@ body {
 
 .Shift_key {
     width: 124px;
+    transform: 0.2s;
 }
 
 ._key {

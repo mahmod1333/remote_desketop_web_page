@@ -2,19 +2,23 @@ let Vshift=false;
 let Vctrl=false;
 let Vwin=false;
 let Valt=false;
-let showKeybord = false
+let showKeybord = true
 let keyboard_en_values = Object.values(keybord_en)
 let keyboard_keys = document.querySelector(".keyboard_keys");
 let keyboard_data_keys=Object.keys(keybord_ar)
 let keyboard_ar_value=Object.values(keybord_ar)
 let lang = "ar"
+let keyboardShowbtn =document.getElementById("act-keyboard");
+let keyboardMaindiv = document.querySelector(".keyboard_wrapp")
 const showKeybordBtnhandler = ()=>{
   if(showKeybord === false){
     showKeybord=true;
-    document.getElementById("act-keyboard").style.display = "block"
-  }else{
+    keyboardMaindiv.style.display = "block";
+    keyboardShowbtn.src = "../../src/img/keyboard_show.png"
+  }else if(showKeybord === true){
     showKeybord=false;
-    document.getElementById("act-keyboard").style.display = "none"
+    keyboardMaindiv.style.display = "none";
+    keyboardShowbtn.src = "../../src/img/keyboard_hide.png"
   }
 
 }
@@ -132,10 +136,14 @@ KeyControlerhandler(e).then((inp)=>{
     Vctrl = true ;
   var obj = { "room": room ,"UpDown":2,"inp":inp};
   socket.emit("type", JSON.stringify(obj));
+  const Ctrlkey = document.querySelector(".Ctrl_key")
+  Ctrlkey.style = "background-color:black;color:#fff"
     }else{
     Vctrl = false ;
   var obj = { "room": room ,"UpDown":3,"inp":inp};
   socket.emit("type", JSON.stringify(obj));
+  const Ctrlkey = document.querySelector(".Ctrl_key")
+  Ctrlkey.style = "background-color:#fff;color:black"
   }
 
 })
@@ -147,6 +155,8 @@ const Althandler = (e)=>{
     Valt = true ;
   var obj = { "room": room ,"UpDown":2,"inp":inp};
   socket.emit("type", JSON.stringify(obj));
+  const Altkey = document.querySelector(".Alt_key")
+  Altkey.style = "background-color:black;color:#fff"
   if(Vshift){
     if(lang === "ar"){
       lang = "en"
@@ -160,6 +170,8 @@ const Althandler = (e)=>{
       Valt = false ;
   var obj = { "room": room ,"UpDown":3,"inp":inp};
   socket.emit("type", JSON.stringify(obj));
+  const Altkey = document.querySelector(".Alt_key")
+  Altkey.style = "background-color:#fff;color:black"
   }
   
 })
